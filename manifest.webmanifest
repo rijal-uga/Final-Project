@@ -1,0 +1,12 @@
+{
+  "name": "Pelacak Tindak Lanjut",
+  "short_name": "Tindak Lanjut",
+  "description": "Catat arahan rapat, pantau yang terlambat, salin pengingat ke WhatsApp.",
+  "lang": "id",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f3f5f7",
+  "theme_color": "#0b5f7a",
+  "icons": [{"src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"}]
+}

@@ -123,6 +123,7 @@ footer{max-width:1120px;margin:0 auto;padding:24px 16px 48px;color:var(--muted);
   <a href="#ik01"><b>Mulai di sini</b><span>Catat arahan pertama (IK-01)</span></a>
   <a href="#ik03"><b>Tiap pagi</b><span>Pantau yang terlambat (IK-03)</span></a>
   <a href="#ik04"><b>Ingatkan PIC</b><span>Salin ringkasan WhatsApp (IK-04)</span></a>
+  <a href="#ik07"><b>Pindah perangkat</b><span>Cadangkan dan pulihkan data (IK-07)</span></a>
   <a href="#masalah"><b>Ada kendala?</b><span>Cara mengatasi masalah umum</span></a>
 </div>
 
@@ -141,6 +142,8 @@ footer{max-width:1120px;margin:0 auto;padding:24px 16px 48px;color:var(--muted);
   <a href="#ik04">IK-04 Ringkasan WhatsApp</a>
   <a href="#ik05">IK-05 Hapus data contoh</a>
   <a href="#ik06">IK-06 Tutup arahan</a>
+  <a href="#ik07">IK-07 Cadangkan data</a>
+  <a href="#ik08">IK-08 Pengingat kalender</a>
   <small>Bantuan</small>
   <a href="#masalah">Jika ada masalah</a>
   <a href="#batas">Keterbatasan</a>
@@ -192,7 +195,7 @@ footer{max-width:1120px;margin:0 auto;padding:24px 16px 48px;color:var(--muted);
     <li>Setiap arahan wajib punya isi arahan, PIC, dan tenggat. Tanpa tenggat, aplikasi tidak bisa menandai keterlambatan.</li>
     <li>Catat arahan paling lambat satu hari kerja setelah rapat, selagi masih segar di ingatan.</li>
     <li class="warnrule"><span><b>Jangan isi data sensitif</b> seperti kata sandi, nomor identitas, data keuangan pribadi, atau informasi sistem yang dibatasi. Aplikasi ini hanya untuk pengingat kerja.</span></li>
-    <li>Data tersimpan di browser perangkat yang dipakai. Pakai satu perangkat dan satu browser yang sama, dan jangan hapus data browser tanpa sengaja.</li>
+    <li>Data tersimpan di browser perangkat yang dipakai. Pakai satu perangkat dan satu browser yang sama, dan unduh cadangan paling sedikit seminggu sekali (IK-07).</li>
     <li>Perbarui status segera setelah ada kabar dari PIC, agar daftar selalu benar.</li>
     <li>Ringkasan WhatsApp dikirim oleh asisten manajer sendiri. Aplikasi hanya menyalin teks, tidak mengirim otomatis.</li>
     <li>Hapus data contoh bawaan sebelum aplikasi dipakai untuk arahan yang sebenarnya.</li>
@@ -240,6 +243,7 @@ footer{max-width:1120px;margin:0 auto;padding:24px 16px 48px;color:var(--muted);
     <li>Jika PIC mulai mengerjakan, tekan <kbd>Mulai</kbd>.</li>
     <li>Jika PIC melapor sudah selesai, tekan <kbd>Selesaikan</kbd>.</li>
     <li>Jika arahan ternyata belum tuntas, tekan <kbd>Buka kembali</kbd>.</li>
+    <li>Jika PIC, tenggat, atau isi arahan berubah, tekan <kbd>Ubah</kbd>, perbaiki isinya, lalu tekan <kbd>Simpan</kbd>.</li>
   </ol>
  </article>
 </section>
@@ -286,7 +290,32 @@ footer{max-width:1120px;margin:0 auto;padding:24px 16px 48px;color:var(--muted);
   <ol class="steps">
     <li>Pastikan pekerjaan benar-benar selesai, bukan sekadar dijanjikan.</li>
     <li>Tekan tombol <kbd>Selesaikan</kbd> pada arahan tersebut (IK-02).</li>
-    <li>Jika arahan salah catat atau sudah tidak berlaku, tekan tombol <kbd>Hapus</kbd> pada arahan itu.</li>
+    <li>Jika arahan salah catat atau sudah tidak berlaku, tekan tombol <kbd>Hapus</kbd> pada arahan itu. Jika salah hapus, tekan <kbd>Urungkan</kbd> yang muncul di bagian bawah layar dalam beberapa detik.</li>
+  </ol>
+ </article>
+</section>
+<section id="ik07" data-s style="display:contents">
+ <article>
+  <header><b>IK-07 Mencadangkan dan memulihkan data</b><span class="tag">Seminggu sekali, atau saat pindah perangkat</span></header>
+  <div class="who">Pelaksana: asisten manajer</div>
+  <ol class="steps">
+    <li>Buka bagian <kbd>Cadangan dan ekspor data</kbd> di bawah daftar. Tanda <span class="tag warn">perlu dicadangkan</span> berarti sudah waktunya.</li>
+    <li>Tekan <kbd>Unduh cadangan (.json)</kbd>. Simpan file di folder kantor atau kirim ke diri sendiri.</li>
+    <li>Untuk memulihkan di perangkat lain, buka aplikasi di sana, tekan <kbd>Pulihkan dari cadangan</kbd>, lalu pilih file cadangan.</li>
+    <li>Arahan yang sudah ada tidak digandakan. Jika salah, tekan <kbd>Urungkan</kbd>.</li>
+    <li>Untuk laporan di Excel, tekan <kbd>Unduh Excel (.csv)</kbd>.</li>
+  </ol>
+ </article>
+</section>
+<section id="ik08" data-s style="display:contents">
+ <article>
+  <header><b>IK-08 Menambah pengingat ke kalender</b><span class="tag">Setelah mencatat arahan baru</span></header>
+  <div class="who">Pelaksana: asisten manajer atau PIC</div>
+  <ol class="steps">
+    <li>Buka bagian <kbd>Cadangan dan ekspor data</kbd>.</li>
+    <li>Tekan <kbd>Tambah ke kalender (.ics)</kbd>. Hanya arahan yang belum selesai dan punya tenggat yang ikut.</li>
+    <li>Buka file yang terunduh, lalu pilih kalender HP atau laptop Anda.</li>
+    <li>Kalender memberi pengingat sehari sebelum tenggat. Jika tenggat berubah, unduh dan impor ulang file baru.</li>
   </ol>
  </article>
 </section>
@@ -296,9 +325,11 @@ footer{max-width:1120px;margin:0 auto;padding:24px 16px 48px;color:var(--muted);
   <h2>Jika ada masalah</h2>
   <p class="lead">Ketuk satu masalah untuk melihat cara mengatasinya.</p>
   <details><summary>Tombol Tambah tidak bekerja</summary><p><b>Penyebab:</b> kolom Tenggat belum diisi. <b>Cara:</b> isi tanggal tenggat, lalu tekan Tambah lagi.</p></details>
-  <details><summary>Data hilang saat dibuka</summary><p><b>Penyebab:</b> memakai browser atau perangkat lain, atau data browser terhapus. <b>Cara:</b> buka dengan browser dan perangkat yang sama. Catat ulang arahan jika data sudah hilang.</p></details>
+  <details><summary>Data hilang saat dibuka</summary><p><b>Penyebab:</b> memakai browser atau perangkat lain, atau data browser terhapus. <b>Cara:</b> buka dengan browser dan perangkat yang sama. Jika data sudah hilang, pulihkan dari file cadangan (IK-07).</p></details>
   <details><summary>Ringkasan WhatsApp tidak tersalin</summary><p><b>Penyebab:</b> browser menolak akses salin. <b>Cara:</b> izinkan akses salin atau ketik ulang teksnya secara manual.</p></details>
   <details><summary>Arahan tidak tampil terlambat</summary><p><b>Penyebab:</b> tanggal tenggat salah. <b>Cara:</b> periksa tenggat. Hapus arahan lalu catat ulang dengan tanggal yang benar.</p></details>
+  <details><summary>Salah hapus arahan</summary><p><b>Cara:</b> tekan <b>Urungkan</b> di bagian bawah layar. Tombol itu hanya muncul beberapa detik. Jika sudah hilang, pulihkan dari file cadangan (IK-07).</p></details>
+  <details><summary>File cadangan ditolak</summary><p><b>Penyebab:</b> file bukan cadangan dari aplikasi ini atau isinya rusak. <b>Cara:</b> pakai file .json yang diunduh dari tombol Unduh cadangan.</p></details>
   <details><summary>Aplikasi tidak bisa dibuka</summary><p><b>Penyebab:</b> tidak ada internet atau tautan salah. <b>Cara:</b> periksa koneksi dan alamat aplikasi, lalu hubungi pemilik proses.</p></details>
 </section>
 
@@ -306,17 +337,18 @@ footer{max-width:1120px;margin:0 auto;padding:24px 16px 48px;color:var(--muted);
   <h2>Keterbatasan versi prototipe</h2>
   <div class="note">
     <ul style="margin:0;padding-left:18px">
-      <li>Data hanya tersimpan di satu browser, tidak otomatis tersinkron ke perangkat lain.</li>
+      <li>Data tersimpan di satu browser. Pindah perangkat dilakukan lewat file cadangan, bukan sinkron otomatis.</li>
       <li>Tidak ada kata sandi atau pembagian akses, jadi jangan mengisi data rahasia.</li>
-      <li>Pengingat tidak terkirim otomatis. Asisten manajer yang menyalin dan mengirim lewat WhatsApp.</li>
-      <li>Belum diuji oleh pengguna lain. Hasil uji coba perlu dicatat untuk memperbaiki SOP ini.</li>
+      <li>Pengingat tidak terkirim otomatis. Gunakan file kalender (IK-08) atau ringkasan WhatsApp (IK-04).</li>
+      <li>Belum diuji oleh banyak pengguna. Hasil uji coba perlu dicatat untuk memperbaiki SOP ini.</li>
     </ul>
+    <p style="margin:10px 0 0">Rencana perbaikan: penyimpanan bersama dan login untuk tim, setelah prototipe terbukti berguna dalam pemakaian nyata.</p>
   </div>
 </section>
 <div class="empty" id="empty">Tidak ada panduan yang cocok. Coba kata lain.</div>
 </main>
 </div>
-<footer>Versi 1.0 (draf) · Pemilik proses: Asisten Manajer · <a href="./">Kembali ke aplikasi</a></footer>
+<footer>Versi 1.1 (draf) · Pemilik proses: Asisten Manajer · <a href="./">Kembali ke aplikasi</a></footer>
 
 <script>
 (function(){

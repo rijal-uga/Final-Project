@@ -1,7 +1,11 @@
-# Pelacak Tindak Lanjut
+# Pelacak Tindak Lanjut Arahan
 
-Prototipe Final Project MBCL Cohort 3 (Belajarlagi): mencatat tindak lanjut arahan rapat, menandai yang terlambat, dan menyalin ringkasan pengingat per PIC untuk WhatsApp.
+Aplikasi web satu halaman (tanpa server) untuk mencatat arahan rapat, memantau yang terlambat, dan menyalin ringkasan pengingat per PIC ke WhatsApp.
 
-Satu file statis (`index.html`), tanpa build. Data tersimpan di browser pengguna dan hanya berisi data contoh.
+- `index.html` aplikasi
+- `sop.html` panduan SOP dan Instruksi Kerja (gaya pusat bantuan)
+- `manifest.webmanifest`, `sw.js`, `icon.svg` agar bisa dipasang di layar HP dan tetap terbuka saat offline
 
-Deploy: Cloudflare Pages, build command kosong, output directory `/`.
+Fitur: tambah dan ubah arahan, status belum/proses/selesai, penanda terlambat dan segera, cari, urungkan hapus, ringkasan WhatsApp, cadangan dan pemulihan (.json), ekspor Excel (.csv), pengingat kalender (.ics).
+
+Data tersimpan di browser (localStorage). Jangan mengisi data rahasia.
