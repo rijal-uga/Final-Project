@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Panduan SOP Pelacak</title>
+<meta name="description" content="Panduan SOP dan Instruksi Kerja untuk aplikasi Pelacak Tindak Lanjut Arahan, dalam bahasa yang mudah dimengerti.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Fraunces:opsz,wght@9..144,600&display=swap">
+<style>
+:root{
+  --bg:#f3f5f7; --surface:#fff; --fg:#14232e; --muted:#5b6b77; --line:#d9e0e5;
+  --accent:#0b5f7a; --accent-fg:#fff; --accent-soft:#e1f0f5;
+  --bad:#b42318; --bad-soft:#fde8e6; --warn:#8a5a00; --warn-soft:#fff1d6; --ok:#1c6b43; --ok-soft:#dff3e8;
+  --display:'Fraunces',Georgia,serif; --body:'IBM Plex Sans',system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#0e171d; --surface:#16232b; --fg:#e6eef3; --muted:#93a5b1; --line:#2a3b46;
+  --accent:#5cc0de; --accent-fg:#06222c; --accent-soft:#17323d;
+  --bad:#ff8f84; --bad-soft:#3d1c19; --warn:#f2c56b; --warn-soft:#3a2d0e; --ok:#7fd6a5; --ok-soft:#14301f; color-scheme:dark}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 var(--body)}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.top{position:sticky;top:0;z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.top-in{max-width:1120px;margin:0 auto;padding:10px 16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.brand{font:600 18px/1 var(--display);margin-right:auto;display:flex;gap:10px;align-items:center;color:var(--fg);text-decoration:none}
+.brand i{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:var(--accent);color:var(--accent-fg);font:600 15px var(--body);font-style:normal}
+.search{flex:1 1 240px;max-width:380px}
+.search input{width:100%;font:inherit;background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:8px 12px}
+.btn{font:inherit;font-weight:600;font-size:14px;background:var(--accent);color:var(--accent-fg);border:0;border-radius:8px;padding:9px 14px;text-decoration:none;white-space:nowrap}
+.hero{background:var(--accent);color:var(--accent-fg)}
+.hero-in{max-width:1120px;margin:0 auto;padding:36px 16px 40px}
+.hero h1{font:600 clamp(26px,4vw,38px)/1.15 var(--display);margin:0 0 8px;text-wrap:balance}
+.hero p{margin:0;max-width:60ch;opacity:.92}
+.quick{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;max-width:1120px;margin:-24px auto 0;padding:0 16px}
+.quick a{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg);display:grid;gap:2px}
+.quick a:hover{border-color:var(--accent)}
+.quick b{color:var(--accent)} .quick span{color:var(--muted);font-size:14px}
+.wrap{max-width:1120px;margin:28px auto 64px;padding:0 16px;display:grid;grid-template-columns:230px minmax(0,1fr);gap:32px}
+nav.side{position:sticky;top:84px;align-self:start;display:grid;gap:2px;font-size:15px}
+nav.side a{padding:7px 12px;border-radius:8px;text-decoration:none;color:var(--muted);border-left:3px solid transparent}
+nav.side a:hover{background:var(--accent-soft);color:var(--fg)}
+nav.side a.on{color:var(--accent);background:var(--accent-soft);border-left-color:var(--accent);font-weight:600}
+nav.side small{margin:14px 12px 4px;text-transform:uppercase;letter-spacing:.06em;font-size:12px;color:var(--muted)}
+main{display:grid;gap:36px;min-width:0}
+section{min-width:0}
+h2{font:600 26px/1.2 var(--display);margin:0 0 6px}
+.lead{color:var(--muted);margin:0 0 16px}
+h3{margin:0;font-size:17px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card p{margin:6px 0 0;color:var(--muted)}
+.tag{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:99px;background:var(--accent-soft);color:var(--accent)}
+.tag.bad{background:var(--bad-soft);color:var(--bad)} .tag.warn{background:var(--warn-soft);color:var(--warn)} .tag.ok{background:var(--ok-soft);color:var(--ok)}
+table{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:15px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--accent-soft);color:var(--fg);font-size:13px;text-transform:uppercase;letter-spacing:.04em}
+tr:last-child td{border-bottom:0}
+.tablewrap{overflow-x:auto}
+.rules{counter-reset:r;display:grid;gap:10px;list-style:none;margin:0;padding:0}
+.rules li{counter-increment:r;position:relative;padding:12px 16px 12px 62px;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+.rules li::before{content:counter(r);position:absolute;left:16px;top:10px;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--accent);color:var(--accent-fg);font-weight:600}
+.rules li.warnrule{border-color:var(--warn)}
+.flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;counter-reset:f;list-style:none;margin:0;padding:0}
+.flow li{counter-increment:f;position:relative;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:30px 12px 14px;text-align:center;font-weight:500;font-size:15px}
+.flow li::before{content:counter(f);position:absolute;top:-14px;left:50%;transform:translateX(-50%);width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--accent-fg);display:grid;place-items:center;font-weight:600;font-size:14px}
+.flow li small{display:block;margin-top:4px;color:var(--muted);font-weight:400;font-size:13px}
+.flow li.dec{border-style:dashed;border-color:var(--warn);background:var(--warn-soft)}
+.flow li.end{border-color:var(--ok);background:var(--ok-soft)}
+.flow-note{margin:14px 0 0;color:var(--muted);font-size:14px}
+.ik{display:grid;gap:14px}
+.ik article{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.ik header{display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:12px 18px;background:var(--accent-soft);border-bottom:1px solid var(--line)}
+.ik header b{font-family:var(--display);font-size:18px}
+.ik header .tag{margin-left:auto}
+.ik .who{padding:10px 18px 0;color:var(--muted);font-size:14px}
+.steps{counter-reset:s;list-style:none;margin:0;padding:10px 18px 16px;display:grid;gap:10px}
+.steps li{counter-increment:s;position:relative;padding-left:40px;min-height:26px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;display:grid;place-items:center;width:26px;height:26px;border-radius:50%;border:2px solid var(--accent);color:var(--accent);font-size:13px;font-weight:600}
+kbd{font:500 .9em var(--body);background:var(--accent-soft);color:var(--accent);border:1px solid var(--line);border-radius:6px;padding:1px 7px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:0 18px}
+details+details{margin-top:8px}
+summary{cursor:pointer;padding:14px 0;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::after{content:'+';color:var(--accent);font-size:20px;line-height:1}
+details[open] summary::after{content:'\2013'}
+details p{margin:0 0 14px;color:var(--muted)}
+details p b{color:var(--fg)}
+.note{background:var(--warn-soft);border:1px solid var(--warn);color:var(--fg);border-radius:12px;padding:14px 18px}
+.empty{display:none;text-align:center;color:var(--muted);padding:24px}
+footer{max-width:1120px;margin:0 auto;padding:24px 16px 48px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+@media (max-width:860px){
+  .wrap{grid-template-columns:1fr}
+  nav.side{position:static;display:flex;overflow-x:auto;gap:6px;padding-bottom:4px}
+  nav.side a{white-space:nowrap;border:1px solid var(--line);border-left-width:1px}
+  nav.side small{display:none}
+  .flow{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ik header .tag{margin-left:0}
+}
+@media print{.top,nav.side,.search,.quick{display:none}.hero{background:none;color:#000}.wrap{display:block}section,article{break-inside:avoid}}
+.hide{display:none!important}
+</style>
+</head>
+<body>
+<div class="top"><div class="top-in">
+  <a class="brand" href="#atas"><i>?</i>Pusat Bantuan</a>
+  <div class="search"><input id="q" type="search" placeholder="Cari panduan, mis. WhatsApp, terlambat" aria-label="Cari panduan"></div>
+  <a class="btn" href="./">Buka aplikasi</a>
+</div></div>
+
+<div class="hero" id="atas"><div class="hero-in">
+  <h1>Panduan memakai Pelacak Tindak Lanjut</h1>
+  <p>SOP dan Instruksi Kerja dalam bahasa sederhana: dari mencatat arahan rapat sampai arahan ditutup selesai.</p>
+</div></div>
+
+<div class="quick">
+  <a href="#ik01"><b>Mulai di sini</b><span>Catat arahan pertama (IK-01)</span></a>
+  <a href="#ik03"><b>Tiap pagi</b><span>Pantau yang terlambat (IK-03)</span></a>
+  <a href="#ik04"><b>Ingatkan PIC</b><span>Salin ringkasan WhatsApp (IK-04)</span></a>
+  <a href="#masalah"><b>Ada kendala?</b><span>Cara mengatasi masalah umum</span></a>
+</div>
+
+<div class="wrap">
+<nav class="side" aria-label="Daftar isi" id="toc">
+  <small>SOP</small>
+  <a href="#tujuan">Tujuan dan cakupan</a>
+  <a href="#istilah">Istilah singkat</a>
+  <a href="#peran">Peran</a>
+  <a href="#aturan">Aturan pokok</a>
+  <a href="#alur">Alur kerja</a>
+  <small>Instruksi Kerja</small>
+  <a href="#ik01">IK-01 Catat arahan</a>
+  <a href="#ik02">IK-02 Perbarui status</a>
+  <a href="#ik03">IK-03 Pantau terlambat</a>
+  <a href="#ik04">IK-04 Ringkasan WhatsApp</a>
+  <a href="#ik05">IK-05 Hapus data contoh</a>
+  <a href="#ik06">IK-06 Tutup arahan</a>
+  <small>Bantuan</small>
+  <a href="#masalah">Jika ada masalah</a>
+  <a href="#batas">Keterbatasan</a>
+</nav>
+
+<main id="isi">
+<section id="tujuan" data-s>
+  <h2>Tujuan dan cakupan</h2>
+  <p class="lead">Aplikasi ini dipakai untuk mencatat arahan dari rapat, melihat mana yang terlambat, dan menyalin pengingat per PIC ke WhatsApp, supaya tidak ada arahan yang terlewat.</p>
+  <div class="grid">
+    <div class="card"><h3>Berlaku untuk</h3><p>Asisten manajer sebagai pengelola, PIC sebagai pelaksana arahan, dan manajer atau GM sebagai penerima laporan.</p></div>
+    <div class="card"><h3>Di luar cakupan</h3><p>Penyimpanan bersama antar perangkat, notifikasi otomatis, dan pencatatan data sensitif.</p></div>
+    <div class="card"><h3>Perangkat</h3><p>HP atau laptop dengan browser. Tidak perlu instal aplikasi.</p></div>
+  </div>
+</section>
+
+<section id="istilah" data-s>
+  <h2>Istilah singkat</h2>
+  <p class="lead">Kata-kata yang akan sering Anda temui di aplikasi.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Istilah</th><th>Artinya</th></tr></thead>
+    <tbody>
+      <tr><td><b>Arahan</b></td><td>Perintah atau keputusan dari rapat yang harus ditindaklanjuti.</td></tr>
+      <tr><td><b>PIC</b></td><td>Orang yang bertanggung jawab menjalankan satu arahan.</td></tr>
+      <tr><td><b>Tenggat</b></td><td>Tanggal paling lambat arahan harus selesai. Wajib diisi.</td></tr>
+      <tr><td><span class="tag warn">Segera</span></td><td>Tenggat tinggal 3 hari atau kurang.</td></tr>
+      <tr><td><span class="tag bad">Terlambat</span></td><td>Tenggat sudah lewat tetapi arahan belum selesai.</td></tr>
+      <tr><td><span class="tag">Berjalan</span></td><td>Sedang dikerjakan dan belum mendekati tenggat.</td></tr>
+      <tr><td><span class="tag ok">Selesai</span></td><td>Sudah dituntaskan oleh PIC.</td></tr>
+      <tr><td><b>Ringkasan WhatsApp</b></td><td>Teks pengingat per PIC yang disalin dari aplikasi lalu ditempel ke WhatsApp.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="peran" data-s>
+  <h2>Peran dan tanggung jawab</h2>
+  <p class="lead">Siapa mengerjakan apa.</p>
+  <div class="grid">
+    <div class="card"><span class="tag">Pengelola</span><h3 style="margin-top:8px">Asisten Manajer</h3><p>Mencatat arahan setelah rapat, memperbarui status, memantau yang terlambat, mengirim ringkasan ke PIC, dan menjaga data tetap rapi.</p></div>
+    <div class="card"><span class="tag">Pelaksana</span><h3 style="margin-top:8px">PIC</h3><p>Melaksanakan arahan sebelum tenggat dan melapor ke asisten manajer saat selesai atau jika ada kendala.</p></div>
+    <div class="card"><span class="tag">Penerima laporan</span><h3 style="margin-top:8px">Manajer atau GM</h3><p>Memberi arahan dalam rapat dan menerima laporan ringkas arahan yang terlambat.</p></div>
+  </div>
+</section>
+
+<section id="aturan" data-s>
+  <h2>Aturan pokok</h2>
+  <p class="lead">Tujuh aturan yang wajib dipatuhi.</p>
+  <ol class="rules">
+    <li>Setiap arahan wajib punya isi arahan, PIC, dan tenggat. Tanpa tenggat, aplikasi tidak bisa menandai keterlambatan.</li>
+    <li>Catat arahan paling lambat satu hari kerja setelah rapat, selagi masih segar di ingatan.</li>
+    <li class="warnrule"><span><b>Jangan isi data sensitif</b> seperti kata sandi, nomor identitas, data keuangan pribadi, atau informasi sistem yang dibatasi. Aplikasi ini hanya untuk pengingat kerja.</span></li>
+    <li>Data tersimpan di browser perangkat yang dipakai. Pakai satu perangkat dan satu browser yang sama, dan jangan hapus data browser tanpa sengaja.</li>
+    <li>Perbarui status segera setelah ada kabar dari PIC, agar daftar selalu benar.</li>
+    <li>Ringkasan WhatsApp dikirim oleh asisten manajer sendiri. Aplikasi hanya menyalin teks, tidak mengirim otomatis.</li>
+    <li>Hapus data contoh bawaan sebelum aplikasi dipakai untuk arahan yang sebenarnya.</li>
+  </ol>
+</section>
+
+<section id="alur" data-s>
+  <h2>Alur kerja</h2>
+  <p class="lead">Alur ini berulang setiap rapat.</p>
+  <ol class="flow">
+    <li>Rapat selesai, ada arahan</li>
+    <li>Catat arahan<small>IK-01</small></li>
+    <li>Pantau daftar tiap pagi<small>IK-03</small></li>
+    <li class="dec">Segera atau terlambat?<small>Tidak: cek lagi besok</small></li>
+    <li>Kirim ringkasan WhatsApp<small>IK-04</small></li>
+    <li>PIC mengerjakan dan melapor</li>
+    <li>Perbarui status<small>IK-02</small></li>
+    <li class="end">Tutup arahan selesai<small>IK-06</small></li>
+  </ol>
+  <p class="flow-note">Jika PIC belum selesai, status tetap berjalan dan arahan kembali dipantau (IK-03). Penghapusan data contoh (IK-05) dilakukan sekali di awal.</p>
+</section>
+
+<div class="ik">
+<section id="ik01" data-s style="display:contents">
+ <article>
+  <header><b>IK-01 Mencatat arahan baru</b><span class="tag">Paling lambat 1 hari kerja setelah rapat</span></header>
+  <div class="who">Pelaksana: asisten manajer</div>
+  <ol class="steps">
+    <li>Buka aplikasi di browser.</li>
+    <li>Isi kolom <kbd>Arahan</kbd> dengan kalimat singkat dan jelas, misalnya "Siapkan paparan evaluasi triwulan".</li>
+    <li>Isi kolom <kbd>PIC</kbd> dengan nama penanggung jawab.</li>
+    <li>Isi kolom <kbd>Tenggat</kbd> dengan tanggal paling lambat. Kolom ini wajib.</li>
+    <li>Isi kolom <kbd>Dari</kbd> dengan asal arahan, misalnya nama rapat atau pemberi arahan.</li>
+    <li>Tekan tombol <kbd>Tambah</kbd>. Arahan muncul di daftar.</li>
+    <li>Periksa bahwa PIC dan tenggat yang tampil sudah benar.</li>
+  </ol>
+ </article>
+</section>
+<section id="ik02" data-s style="display:contents">
+ <article>
+  <header><b>IK-02 Memperbarui status</b><span class="tag">Setiap ada kabar dari PIC</span></header>
+  <div class="who">Pelaksana: asisten manajer</div>
+  <ol class="steps">
+    <li>Cari arahan di daftar.</li>
+    <li>Jika PIC mulai mengerjakan, tekan <kbd>Mulai</kbd>.</li>
+    <li>Jika PIC melapor sudah selesai, tekan <kbd>Selesaikan</kbd>.</li>
+    <li>Jika arahan ternyata belum tuntas, tekan <kbd>Buka kembali</kbd>.</li>
+  </ol>
+ </article>
+</section>
+<section id="ik03" data-s style="display:contents">
+ <article>
+  <header><b>IK-03 Memantau arahan yang terlambat</b><span class="tag">Setiap pagi sebelum jam kerja</span></header>
+  <div class="who">Pelaksana: asisten manajer</div>
+  <ol class="steps">
+    <li>Buka aplikasi dan lihat ringkasan jumlah di bagian atas.</li>
+    <li>Perhatikan arahan berstatus <span class="tag bad">Terlambat</span> dan <span class="tag warn">Segera</span>.</li>
+    <li>Catat PIC yang punya arahan terlambat untuk diingatkan.</li>
+    <li>Jika ada yang terlambat lebih dari tiga hari, laporkan ke manajer.</li>
+  </ol>
+ </article>
+</section>
+<section id="ik04" data-s style="display:contents">
+ <article>
+  <header><b>IK-04 Menyalin dan mengirim ringkasan WhatsApp</b><span class="tag">Setelah IK-03, bila ada arahan segera atau terlambat</span></header>
+  <div class="who">Pelaksana: asisten manajer</div>
+  <ol class="steps">
+    <li>Tekan tombol <kbd>Salin ringkasan WhatsApp</kbd>.</li>
+    <li>Aplikasi menyusun teks yang dikelompokkan per PIC dan menyalinnya.</li>
+    <li>Buka WhatsApp, pilih PIC atau grup yang tepat.</li>
+    <li>Tempel teks, baca sekali lagi, lalu kirim.</li>
+    <li>Kirim hanya ke PIC yang bersangkutan, jangan ke semua orang.</li>
+  </ol>
+ </article>
+</section>
+<section id="ik05" data-s style="display:contents">
+ <article>
+  <header><b>IK-05 Menghapus data contoh</b><span class="tag">Sekali, sebelum dipakai sungguhan</span></header>
+  <div class="who">Pelaksana: asisten manajer</div>
+  <ol class="steps">
+    <li>Lihat daftar. Arahan bawaan adalah data contoh.</li>
+    <li>Tekan tombol <kbd>Hapus data contoh</kbd>.</li>
+    <li>Pastikan daftar sudah bersih, lalu mulai dengan IK-01.</li>
+  </ol>
+ </article>
+</section>
+<section id="ik06" data-s style="display:contents">
+ <article>
+  <header><b>IK-06 Menutup arahan yang selesai</b><span class="tag">Setelah PIC melapor selesai</span></header>
+  <div class="who">Pelaksana: asisten manajer</div>
+  <ol class="steps">
+    <li>Pastikan pekerjaan benar-benar selesai, bukan sekadar dijanjikan.</li>
+    <li>Tekan tombol <kbd>Selesaikan</kbd> pada arahan tersebut (IK-02).</li>
+    <li>Jika arahan salah catat atau sudah tidak berlaku, tekan tombol <kbd>Hapus</kbd> pada arahan itu.</li>
+  </ol>
+ </article>
+</section>
+</div>
+
+<section id="masalah" data-s>
+  <h2>Jika ada masalah</h2>
+  <p class="lead">Ketuk satu masalah untuk melihat cara mengatasinya.</p>
+  <details><summary>Tombol Tambah tidak bekerja</summary><p><b>Penyebab:</b> kolom Tenggat belum diisi. <b>Cara:</b> isi tanggal tenggat, lalu tekan Tambah lagi.</p></details>
+  <details><summary>Data hilang saat dibuka</summary><p><b>Penyebab:</b> memakai browser atau perangkat lain, atau data browser terhapus. <b>Cara:</b> buka dengan browser dan perangkat yang sama. Catat ulang arahan jika data sudah hilang.</p></details>
+  <details><summary>Ringkasan WhatsApp tidak tersalin</summary><p><b>Penyebab:</b> browser menolak akses salin. <b>Cara:</b> izinkan akses salin atau ketik ulang teksnya secara manual.</p></details>
+  <details><summary>Arahan tidak tampil terlambat</summary><p><b>Penyebab:</b> tanggal tenggat salah. <b>Cara:</b> periksa tenggat. Hapus arahan lalu catat ulang dengan tanggal yang benar.</p></details>
+  <details><summary>Aplikasi tidak bisa dibuka</summary><p><b>Penyebab:</b> tidak ada internet atau tautan salah. <b>Cara:</b> periksa koneksi dan alamat aplikasi, lalu hubungi pemilik proses.</p></details>
+</section>
+
+<section id="batas" data-s>
+  <h2>Keterbatasan versi prototipe</h2>
+  <div class="note">
+    <ul style="margin:0;padding-left:18px">
+      <li>Data hanya tersimpan di satu browser, tidak otomatis tersinkron ke perangkat lain.</li>
+      <li>Tidak ada kata sandi atau pembagian akses, jadi jangan mengisi data rahasia.</li>
+      <li>Pengingat tidak terkirim otomatis. Asisten manajer yang menyalin dan mengirim lewat WhatsApp.</li>
+      <li>Belum diuji oleh pengguna lain. Hasil uji coba perlu dicatat untuk memperbaiki SOP ini.</li>
+    </ul>
+  </div>
+</section>
+<div class="empty" id="empty">Tidak ada panduan yang cocok. Coba kata lain.</div>
+</main>
+</div>
+<footer>Versi 1.0 (draf) · Pemilik proses: Asisten Manajer · <a href="./">Kembali ke aplikasi</a></footer>
+
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('#toc a'));
+  var secs=[].slice.call(document.querySelectorAll('main section[id]'));
+  function spy(){
+    var y=window.scrollY+120,cur=secs[0];
+    secs.forEach(function(s){var a=s.querySelector('article')||s;if(a.getBoundingClientRect().top+window.scrollY<=y)cur=s});
+    links.forEach(function(l){l.classList.toggle('on',l.getAttribute('href')==='#'+cur.id)});
+  }
+  window.addEventListener('scroll',spy,{passive:true});spy();
+  var q=document.getElementById('q'),empty=document.getElementById('empty');
+  q.addEventListener('input',function(){
+    var t=q.value.trim().toLowerCase(),n=0;
+    secs.forEach(function(s){
+      var hit=!t||s.textContent.toLowerCase().indexOf(t)>-1;
+      var el=s.querySelector('article')||s; el.classList.toggle('hide',!hit);
+      if(s.style.display!=='contents')s.classList.toggle('hide',!hit);
+      if(hit)n++;
+    });
+    empty.style.display=n?'none':'block';
+  });
+})();
+</script>
+</body>
+</html>
